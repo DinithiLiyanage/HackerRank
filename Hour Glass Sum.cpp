@@ -13,16 +13,24 @@ vector<string> split(const string &);
  * The function accepts 2D_INTEGER_ARRAY arr as parameter.
  */
 
+/* If the hourglass is in the form
+*    a b c
+*      d
+*    e f g
+*/
 int hourglassSum(vector<vector<int>> arr) {
     int max = -64;
+    //Select the 3x3 matrices in the array
     for(int row=0; row<4; row++){
         for(int col=0; col<4; col++){
             int sum = 0;
+            //Add the top and bottm rows of the hourglass.
             for(int i=row; i<=row+2; i+=2){
                 for(int j=col; j<=col+2; j++){
                     sum += arr[i][j];
                 }
             }
+            //Add the middle element(d) in the hourglass.
             sum += arr[row+1][col+1];
             if(sum > max){
                 max = sum;
