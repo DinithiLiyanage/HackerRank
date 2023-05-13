@@ -18,10 +18,13 @@ vector<string> split(const string &);
 vector<int> rotateLeft(int d, vector<int> arr) {
     int size = arr.size();
     for(int i=1; i<=d; i++){
+        //Store the 0th element in the array.
         int first = arr[0];
+        //Move the elements from index 1 to the left by one position.
         for(int j=1; j<size; j++){
             arr[j-1] = arr[j];
         }
+        //Add the 0th element from the initial array to the end.
         arr[size-1] = first;
     }
     return arr;
